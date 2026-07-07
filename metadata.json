@@ -1,0 +1,8 @@
+{
+  "name": "Divine Magick Landing Page",
+  "description": "A beautiful, mystical landing page for Divine Magick, featuring life coaching and mindset courses by Ekta Chimnani.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
