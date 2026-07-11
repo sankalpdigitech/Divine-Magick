@@ -46,20 +46,23 @@ export const testimonials: Testimonial[] = [
     name: 'Neha M.',
     role: 'Healing Journey Participant',
     content: '"Working with Ekta completely shifted my perspective. I learned to release deeply held negative energy and finally found peace in my daily life. Her guidance is truly magical."',
-    rating: 5
+    rating: 5,
+    image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80'
   },
   {
     id: 't2',
     name: 'Rohan K.',
     role: 'Hypnotherapy Client',
     content: '"The hypnotherapy sessions were profound. I was able to access parts of my subconscious I didn\'t know existed and heal traumas that had been holding me back for years."',
-    rating: 5
+    rating: 5,
+    image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=200&q=80'
   },
   {
     id: 't3',
     name: 'Priya R.',
     role: 'Relationship Coaching',
     content: '"Ekta helped me rebuild my self-worth. Her approach to relationship coaching isn\'t just about others—it starts with you. I am forever grateful for her wisdom and patience."',
-    rating: 5
+    rating: 5,
+    image: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?auto=format&fit=crop&w=200&q=80'
   }
 ];

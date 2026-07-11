@@ -20,6 +20,8 @@
   --color-amethyst-300: #c4b5fd;
   --color-amethyst-400: #a78bfa;
   --color-amethyst-500: #8b5cf6;
+
+  --animate-pulse-slow: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
 body {

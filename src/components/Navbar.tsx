@@ -5,6 +5,7 @@ import { Menu, X } from 'lucide-react';
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   const { scrollY } = useScroll();
 
@@ -23,6 +24,28 @@ export default function Navbar() {
     { name: 'Sanctuary', href: '#sanctuary' },
     { name: 'Stories', href: '#testimonials' }
   ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = navLinks.map(link => link.href.substring(1));
+      let currentSection = 'home';
+      for (const sectionId of sections) {
+        const section = document.getElementById(sectionId);
+        if (section) {
+          const rect = section.getBoundingClientRect();
+          // Adjust logic based on nav height. If top is above middle of screen and bottom is below top of screen
+          if (rect.top <= window.innerHeight * 0.4 && rect.bottom >= window.innerHeight * 0.4) {
+            currentSection = sectionId;
+          }
+        }
+      }
+      setActiveSection(currentSection);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Initial check
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 pointer-events-none px-4 md:px-12">
@@ -50,22 +73,36 @@ export default function Navbar() {
         </a>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-10">
-          {navLinks.map((link) => (
+        <div className="hidden md:flex items-center gap-1">
+          {navLinks.map((link) => {
+            const isActive = activeSection === link.href.substring(1);
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                className={`relative px-5 py-2.5 font-sans text-sm tracking-wide transition-colors z-10 ${
+                  isActive ? 'text-charcoal-900 font-medium' : 'text-charcoal-800 hover:text-charcoal-900'
+                }`}
+              >
+                {isActive && (
+                  <motion.div
+                    layoutId="desktop-nav-pill"
+                    className="absolute inset-0 bg-charcoal-900/5 rounded-full -z-10"
+                    transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                  />
+                )}
+                {link.name}
+              </a>
+            );
+          })}
+          <div className="pl-6">
             <a
-              key={link.name}
-              href={link.href}
-              className="font-sans text-sm tracking-wide text-charcoal-800 hover:text-amethyst-500 transition-colors"
+              href="#courses"
+              className="btn-primary px-7 py-2.5 rounded-full text-sm font-medium tracking-wide"
             >
-              {link.name}
+              Begin Journey
             </a>
-          ))}
-          <a
-            href="#courses"
-            className="btn-primary px-7 py-2.5 rounded-full text-sm font-medium tracking-wide"
-          >
-            Begin Journey
-          </a>
+          </div>
         </div>
 
         {/* Mobile Menu Toggle */}
