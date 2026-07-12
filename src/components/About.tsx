@@ -55,7 +55,7 @@ export default function About() {
           >
             <div className="aspect-[3/4] rounded-2xl overflow-hidden bg-sand-100 relative">
               <img 
-                src="/founder.jpg" 
+                src="./founder.jpg" 
                 alt="Ekta Chimnani - Founder" 
                 className="object-cover w-full h-full"
               />
