@@ -35,7 +35,7 @@ export const courses: Course[] = [
     description: 'Discover actionable strategies and mindfulness practices to cultivate lasting peace and tranquility.',
     price: 1200,
     modules: 1,
-    image: 'https://images.unsplash.com/photo-1474418397713-7de216b92a8c?auto=format&fit=crop&w=800&q=80',
+    image: 'https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80',
     icon: 'Leaf'
   }
 ];
